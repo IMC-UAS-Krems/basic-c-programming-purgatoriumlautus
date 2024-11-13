@@ -16,14 +16,43 @@ int main(int argc, char *argv[]) {
         printf("Incorrect usage. You provided %d arguments. The correct number of arguments is 2\n",argc-1);
         return -1;
     }
-    int x = atoi(argv[1]); //will return 0 for non-integer input
-    int y = atoi(argv[2]);
-    if (x > 0 && y > 0){
-        printf("x is %d\ny is %d\n",x,y);
+    int row = atoi(argv[1]); //convert to integer will return 0 for non-integer input
+    int col = atoi(argv[2]); 
+    
+    FILE *file1 = NULL; //create null pointer to file
+    if (row > 0 && col > 0){
+        printf("x is %d\ny is %d\n",row,col);
+        int *mtrx = (int *)malloc(sizeof(int)*row*col); //mtrx will point to allocated space size of  4bytes*row*col matrix
+        file1 = fopen("matrix","a"); 
+        if (file1 == NULL) {
+            printf("Failed to open file %s\n", argv[1]); 
+            return -1;
+        }
+
+        for (int i = 0; i < row; i++){
+            if(i > 0 && i < row){
+                fprintf(file1,"\n");
+            }
+            
+            for (int j = 0; j < col; j++){
+                int randn = minrand + rand() % (maxrand - minrand + 1);
+                mtrx[col*i+j] = randn;
+                if(j == col-1){
+                    printf("asd");
+                    fprintf(file1,"%d",mtrx[col*i+j]);
+                }
+                else{
+                    fprintf(file1,"%d ",mtrx[col*i+j]);
+                }
+            }
+            
+        }
     }
+
     else{
         printf("Incorrect usage. The parameters you provided are not positive integers\n");
     }
 
+     
     return 0;
 }
