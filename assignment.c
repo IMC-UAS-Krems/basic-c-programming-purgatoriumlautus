@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
             mtrx[n] = (int *)malloc(sizeof(int)*col);
         }
         
-        file1 = fopen("matrix","a"); 
+        file1 = fopen("matrix.txt","a"); 
         
         if (file1 == NULL) {
             printf("Failed to open file %s\n", argv[1]); 
@@ -52,13 +52,13 @@ int main(int argc, char *argv[]) {
             }
             fprintf(file1,"\n");    
         }
-        fclose(file1);
+       
     }
         
     else{
         printf("Incorrect usage. The parameters you provided are not positive integers\n");
     }
 
-     
+    fclose(file1);
     return 0;
 }
