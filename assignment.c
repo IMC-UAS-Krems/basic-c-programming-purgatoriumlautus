@@ -20,29 +20,37 @@ int main(int argc, char *argv[]) {
     int col = atoi(argv[2]); 
     
     FILE *file1 = NULL; //create null pointer to file
-    if (row > 0 && col > 0){
+    if (row > 0 && col > 0 ){
         printf("x is %d\ny is %d\n",row,col);
-        int *mtrx = (int *)malloc(sizeof(int)*row*col); //mtrx will point to allocated space size of  4bytes*row*col matrix
+        
+        int **mtrx = (int **)malloc(sizeof(int *)*row); //mtrx will point to allocated space size of  4bytes*row*col matrix
+        
+        for(int n=0;n<col;n++){
+            mtrx[n] = (int *)malloc(sizeof(int)*col);
+        }
+        
         file1 = fopen("matrix","a"); 
+        
         if (file1 == NULL) {
             printf("Failed to open file %s\n", argv[1]); 
             return -1;
         }
 
+
         for (int i = 0; i < row; i++){
             if(i > 0 && i < row){
                 fprintf(file1,"\n");
             }
-            
+
             for (int j = 0; j < col; j++){
                 int randn = minrand + rand() % (maxrand - minrand + 1);
-                mtrx[col*i+j] = randn;
+                mtrx[i][j] = randn;
                 if(j == col-1){
-                    printf("asd");
-                    fprintf(file1,"%d",mtrx[col*i+j]);
+                    
+                    fprintf(file1,"%d",mtrx[i][j]);
                 }
                 else{
-                    fprintf(file1,"%d ",mtrx[col*i+j]);
+                    fprintf(file1,"%d ",mtrx[i][j]);
                 }
             }
             

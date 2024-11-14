@@ -22,4 +22,6 @@ test: $(TARGET) test.c
 # Rule to clean up the build files
 clean:
 	rm -f $(TARGET) test
+	rm assignment
+	
 
