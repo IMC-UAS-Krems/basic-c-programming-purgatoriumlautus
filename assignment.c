@@ -16,10 +16,11 @@ int main(int argc, char *argv[]) {
         printf("Incorrect usage. You provided %d arguments. The correct number of arguments is 2\n",argc-1);
         return -1;
     }
+
     int row = atoi(argv[1]); //convert to integer will return 0 for non-integer input
     int col = atoi(argv[2]); 
-    
     FILE *file1 = NULL; //create null pointer to file
+
     if (row > 0 && col > 0 ){
         printf("x is %d\ny is %d\n",row,col);
         
@@ -38,9 +39,9 @@ int main(int argc, char *argv[]) {
 
 
         for (int i = 0; i < row; i++){
-            if(i > 0 && i < row){
-                fprintf(file1,"\n");
-            }
+        
+            
+            
 
             for (int j = 0; j < col; j++){
                 int randn = minrand + rand() % (maxrand - minrand + 1);
@@ -54,7 +55,7 @@ int main(int argc, char *argv[]) {
                     fprintf(file1,"%d ",mtrx[i][j]);
                 }
             }
-            
+            fprintf(file1,"\n");    
         }
     }
 
