@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
         
         int **mtrx = (int **)malloc(sizeof(int *)*row); //mtrx will point to allocated space size of  4bytes*row*col matrix
         
-        for(int n=0;n<col;n++){
+        for(int n=0;n<row;n++){
             mtrx[n] = (int *)malloc(sizeof(int)*col);
         }
         
@@ -45,6 +45,7 @@ int main(int argc, char *argv[]) {
             for (int j = 0; j < col; j++){
                 int randn = minrand + rand() % (maxrand - minrand + 1);
                 mtrx[i][j] = randn;
+                
                 if(j == col-1){
                     
                     fprintf(file1,"%d",mtrx[i][j]);
