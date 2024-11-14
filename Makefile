@@ -23,5 +23,5 @@ test: $(TARGET) test.c
 clean:
 	rm -f $(TARGET) test
 	rm assignment
-	
+	rm matrix.txt
 

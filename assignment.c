@@ -39,16 +39,11 @@ int main(int argc, char *argv[]) {
 
 
         for (int i = 0; i < row; i++){
-        
-            
-            
-
             for (int j = 0; j < col; j++){
                 int randn = minrand + rand() % (maxrand - minrand + 1);
                 mtrx[i][j] = randn;
                 
-                if(j == col-1){
-                    
+                if(j == col-1){   
                     fprintf(file1,"%d",mtrx[i][j]);
                 }
                 else{
