@@ -52,8 +52,9 @@ int main(int argc, char *argv[]) {
             }
             fprintf(file1,"\n");    
         }
+        fclose(file1);
     }
-
+        
     else{
         printf("Incorrect usage. The parameters you provided are not positive integers\n");
     }
